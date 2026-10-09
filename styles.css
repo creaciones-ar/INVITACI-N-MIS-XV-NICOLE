@@ -4,6 +4,7 @@
    paleta azul / plateado (sin negro ni bolas disco)
    ========================================= */
 
+
 /* ---------- 1. VARIABLES: cambiá la paleta desde acá ---------- */
 :root {
     --azul: #1b365d;
@@ -20,7 +21,7 @@
     --linea: rgba(27, 54, 93, 0.55);
 
     /* Tipografías (las de la referencia) */
-    --script: "Mr De Haviland", cursive;
+    --script: "Herr Von Muellerhoff", cursive;
     --sans: "Montserrat", sans-serif;
     --serif: "Cormorant Garamond", serif;
     --mono: "Courier Prime", monospace;
@@ -294,7 +295,6 @@ section {
 .month-label {
     font-size: clamp(1.1rem, 4vw, 1.4rem);
     letter-spacing: 6px;
-    text-transform: lowercase;
     font-weight: 500;
     margin-bottom: 16px;
 }
@@ -467,3 +467,14 @@ section {
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* ---------- 12. AJUSTE DE TAMAÑOS PARA HERR VON MUELLERHOFF ----------
+   Esta tipografía es muy fina y de letra chica, por eso los tamaños son grandes.
+   Si cambiás la tipografía de --script, ajustá estos valores. */
+.welcome-name, .top-subtitle, .script-title, .bible-verse, .bible-ref { font-weight: 400; }
+.welcome-name { font-size: clamp(7.5rem, 32vw, 12rem); }
+.top-subtitle { font-size: clamp(4.6rem, 17vw, 7rem); }
+.script-title { font-size: clamp(4.2rem, 15vw, 6.4rem); }
+.script-title.small { font-size: clamp(3.4rem, 12vw, 5.2rem); }
+.bible-verse { font-size: clamp(2.4rem, 8vw, 3.7rem); line-height: 1; }
+.bible-ref { font-size: clamp(1.9rem, 6.2vw, 2.7rem); }
