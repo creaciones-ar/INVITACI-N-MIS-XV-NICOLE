@@ -11,12 +11,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const progress = document.getElementById("progress");
     const progressBar = document.getElementById("progress-bar");
 
+    // Diagnóstico: abrí la página con ?debug=1 al final del link para ver el error de audio
+    function debugMsg(text) {
+        if (!/[?&]debug/.test(location.search)) return;
+        const hint = document.querySelector(".player-hint");
+        if (hint) { hint.textContent = text; hint.style.color = "#b00020"; }
+    }
+
     // ---------- ABRIR EL SOBRE ----------
     if (openBtn) {
         openBtn.addEventListener("click", function () {
             if (music) {
                 music.play().catch(function (error) {
                     console.log("No se pudo reproducir la música:", error);
+                    debugMsg("play() falló: " + error.name);
                     syncPlayerState();
                 });
             }
@@ -41,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         music.addEventListener("error", function () {
             player.classList.remove("is-playing");
             console.error("No se pudo cargar musica.mp3. Revisá que el archivo exista y sea un MP3 válido.", music.error);
+            debugMsg("Error de audio, código " + (music.error ? music.error.code : "?") + " (4 = archivo no encontrado o formato no válido)");
         });
 
         // Barra de progreso
@@ -53,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (playBtn) {
         playBtn.addEventListener("click", function () {
             if (music.paused) {
-                music.play().catch(function (e) { console.log(e); syncPlayerState(); });
+                music.play().catch(function (e) { console.log(e); debugMsg("play() falló: " + e.name); syncPlayerState(); });
             } else {
                 music.pause();
             }
