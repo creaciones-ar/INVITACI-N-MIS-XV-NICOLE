@@ -168,7 +168,7 @@ section {
 .glow { text-shadow: 0 0 10px rgba(255,255,255,.9), 0 0 24px rgba(174,185,200,.9); }
 
 /* ---------- 4. HERO ---------- */
-.hero-section { padding-top: calc(min(100vw, 560px) * 0.27); }
+.hero-section { padding-top: calc(min(100vw, 560px) * 0.45); }
 
 .top-subtitle {
     font-family: var(--script);
@@ -411,7 +411,7 @@ section {
     transition: transform .2s ease, box-shadow .2s ease;
 }
 .btn-silver:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(16,36,66,.32); }
-.btn-silver.big { padding: 14px 54px; font-size: clamp(1.05rem, 4vw, 1.35rem); }
+.btn-silver.big { padding: 14px clamp(26px, 7vw, 46px); font-size: clamp(1rem, 3.6vw, 1.25rem); white-space: nowrap; }
 
 /* ---------- 9. DRESS CODE Y REGALOS ---------- */
 .info-section { padding: 30px 20px; }
@@ -438,15 +438,23 @@ section {
 .final-section { padding: 40px 14px calc(min(100vw, 560px) * 0.3); }
 
 .rsvp-container {
+    position: relative;
     width: 100%;
     max-width: 560px;
-    padding: 44px 22px 36px;
-    border-radius: 6px;
-    background:
-        radial-gradient(circle at 20% 30%, rgba(255,255,255,.6) 0 1.5px, transparent 2.5px),
-        radial-gradient(circle at 70% 60%, rgba(255,255,255,.5) 0 2px, transparent 3px),
-        radial-gradient(circle at 45% 85%, rgba(255,255,255,.5) 0 1.5px, transparent 2.5px),
-        rgba(27, 54, 93, 0.08);
+    padding: 52px 22px 44px;
+}
+/* Acuarela de fondo con transparencia, sin recuadro */
+.rsvp-container::before {
+    content: "";
+    position: absolute;
+    inset: -40px -22px;
+    z-index: -1;
+    pointer-events: none;
+    background: url("fondo-confirmacion.png") left center / auto 100% no-repeat;
+    opacity: .75;
+    mix-blend-mode: multiply;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 16%, #000 84%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 16%, #000 84%, transparent 100%);
 }
 .rsvp-desc {
     font-size: clamp(1.05rem, 4vw, 1.4rem);
@@ -478,3 +486,30 @@ section {
 .script-title.small { font-size: clamp(3.4rem, 12vw, 5.2rem); }
 .bible-verse { font-size: clamp(2.4rem, 8vw, 3.7rem); line-height: 1; }
 .bible-ref { font-size: clamp(1.9rem, 6.2vw, 2.7rem); }
+
+/* ---------- 13. AJUSTES FINALES ---------- */
+
+/* Versículo en 5 renglones, centrado, con las polaroids a la derecha */
+.hero-row { grid-template-columns: 1.3fr 1fr; gap: 4px; }
+.bible-section { container-type: inline-size; padding: 0; }
+.bible-verse { font-size: clamp(1.7rem, 6vw, 2.6rem); line-height: 1.05; margin-bottom: 8px; }
+.bible-verse span { display: block; white-space: nowrap; }
+@supports (width: 1cqw) {
+    .bible-verse { font-size: min(13cqw, 3.4rem); }
+    .bible-ref { font-size: min(9cqw, 2.4rem); }
+}
+.polaroid-stack .polaroid-card { width: clamp(118px, 31vw, 185px); }
+.polaroid-stack .polaroid-card:nth-child(2) { margin-top: -30px; margin-left: 14px; }
+
+/* "Lugar del evento:" un poco más chico y corrido a la izquierda */
+.location-content-box { min-width: 0; padding-right: 4px; }
+.location-content-box .script-title.small {
+    font-size: clamp(2.6rem, 8.6vw, 3.8rem);
+    transform: translateX(-10px);
+}
+
+/* "¡El mejor regalo es tu presencia!" en un solo renglón */
+.info-block { width: 100%; max-width: 520px; container-type: inline-size; }
+.gift-title { font-size: clamp(2rem, 7vw, 3.4rem); white-space: nowrap; line-height: 1; margin-bottom: 18px; }
+@supports (width: 1cqw) { .gift-title { font-size: min(9.6cqw, 4.6rem); } }
+.info-text { max-width: 400px; margin-left: auto; margin-right: auto; }
