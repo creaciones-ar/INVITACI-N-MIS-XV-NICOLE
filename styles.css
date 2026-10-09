@@ -442,22 +442,14 @@ section {
     max-width: 560px;
     padding: 52px 22px 44px;
 }
-/* Acuarela de fondo: empieza debajo de las polaroids y llega hasta el fondo de abajo */
-.rsvp-container { position: relative; }
-.rsvp-container::before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: -14px;
-    right: -14px;
-    bottom: calc(min(100vw, 560px) * -0.3);
-    z-index: -1;
-    pointer-events: none;
-    background: url("fondo-confirmacion.png") left center / cover no-repeat;
-    opacity: .8;
-    mix-blend-mode: multiply;
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 16%, #000 70%, transparent 95%);
-    mask-image: linear-gradient(to bottom, transparent 0, #000 16%, #000 70%, transparent 95%);
+/* Recuadro suave detrás de la confirmación */
+.rsvp-container {
+    background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.6) 0 1.5px, transparent 2.5px),
+        radial-gradient(circle at 70% 60%, rgba(255,255,255,.5) 0 2px, transparent 3px),
+        radial-gradient(circle at 45% 85%, rgba(255,255,255,.5) 0 1.5px, transparent 2.5px),
+        rgba(27, 54, 93, 0.08);
+    border-radius: 6px;
 }
 .rsvp-desc {
     font-size: clamp(1.05rem, 4vw, 1.4rem);
