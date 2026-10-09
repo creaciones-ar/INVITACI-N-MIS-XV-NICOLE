@@ -525,3 +525,57 @@ section {
     white-space: nowrap;
     margin-bottom: 18px;
 }
+
+/* ---------- 14. AJUSTES PARA CELULAR ---------- */
+main#main-content { overflow-x: clip; }
+
+/* "It's my birthday" en un solo renglón */
+.top-subtitle {
+    font-size: calc((min(100vw, 560px) - 40px) / 5.1);
+    white-space: nowrap;
+}
+
+/* NICOLE (icono1.gif) más grande */
+.name-balloons-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+.name-balloons-img {
+    width: calc(min(100vw, 460px) * 1.12);
+    max-width: none;
+    flex-shrink: 0;
+}
+
+/* Versículo más grande: más ancho para el texto y polaroids un poco más chicas */
+.hero-row { grid-template-columns: 1.5fr 1fr; }
+.bible-verse { -webkit-text-stroke: .35px currentColor; }
+@supports (width: 1cqw) {
+    .bible-verse { font-size: min(15cqw, 3.6rem); }
+    .bible-ref { font-size: min(10cqw, 2.5rem); }
+}
+.polaroid-stack .polaroid-card { width: clamp(104px, 29vw, 185px); }
+.polaroid-stack .polaroid-card:nth-child(2) { margin-left: 12px; }
+
+/* Íconos más grandes */
+.icon-container { width: clamp(70px, 20vw, 100px); height: clamp(70px, 20vw, 100px); }
+
+/* Dress Code y "¡El mejor regalo...!" con el mismo tamaño */
+.info-section { padding-left: 8px; padding-right: 8px; }
+.info-block { max-width: 100%; }
+.info-block .script-title {
+    font-size: calc((min(100vw, 560px) - 16px) * 0.108);
+    white-space: nowrap;
+    line-height: 1;
+    margin-bottom: 18px;
+}
+
+/* Foto del lugar más grande en pantallas chicas */
+@media (max-width: 520px) {
+    .location-section { padding-left: 8px; padding-right: 8px; gap: 12px; }
+    .location-photo-wrapper { flex: 0 0 50%; }
+    .location-content-box .btn-silver.big { padding: 12px 18px; font-size: .92rem; }
+}
