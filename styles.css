@@ -373,7 +373,7 @@ section {
     max-width: 720px;
     margin: 0 auto;
 }
-.location-photo-wrapper { flex: 0 0 46%; display: flex; justify-content: flex-end; }
+.location-photo-wrapper { flex: 0 0 42%; display: flex; justify-content: flex-end; }
 
 /* Borde rasgado a la derecha */
 .torn-edge-photo {
@@ -438,23 +438,23 @@ section {
 .final-section { padding: 40px 14px calc(min(100vw, 560px) * 0.3); }
 
 .rsvp-container {
-    position: relative;
     width: 100%;
     max-width: 560px;
     padding: 52px 22px 44px;
 }
-/* Acuarela de fondo con transparencia, sin recuadro */
-.rsvp-container::before {
+/* Acuarela de fondo: cubre toda la sección de confirmación, con transparencia */
+.final-section { position: relative; }
+.final-section::before {
     content: "";
     position: absolute;
-    inset: -40px -22px;
+    inset: 0;
     z-index: -1;
     pointer-events: none;
-    background: url("fondo-confirmacion.png") left center / auto 100% no-repeat;
-    opacity: .75;
+    background: url("fondo-confirmacion.png") center / 100% 100% no-repeat;
+    opacity: .8;
     mix-blend-mode: multiply;
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 16%, #000 84%, transparent 100%);
-    mask-image: linear-gradient(to bottom, transparent 0, #000 16%, #000 84%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 10%, #000 68%, transparent 92%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 10%, #000 68%, transparent 92%);
 }
 .rsvp-desc {
     font-size: clamp(1.05rem, 4vw, 1.4rem);
@@ -503,9 +503,14 @@ section {
 
 /* "Lugar del evento:" un poco más chico y corrido a la izquierda */
 .location-content-box { min-width: 0; padding-right: 4px; }
+.location-content-box { container-type: inline-size; }
 .location-content-box .script-title.small {
-    font-size: clamp(2.6rem, 8.6vw, 3.8rem);
-    transform: translateX(-10px);
+    font-size: clamp(1.9rem, 7.5vw, 3.2rem);
+    white-space: nowrap;
+    transform: none;
+}
+@supports (width: 1cqw) {
+    .location-content-box .script-title.small { font-size: min(18cqw, 3.4rem); }
 }
 
 /* "¡El mejor regalo es tu presencia!" en un solo renglón */
@@ -513,3 +518,10 @@ section {
 .gift-title { font-size: clamp(2rem, 7vw, 3.4rem); white-space: nowrap; line-height: 1; margin-bottom: 18px; }
 @supports (width: 1cqw) { .gift-title { font-size: min(9.6cqw, 4.6rem); } }
 .info-text { max-width: 400px; margin-left: auto; margin-right: auto; }
+
+/* "Confirmación de asistencia" en un solo renglón */
+.rsvp-container .script-title {
+    font-size: calc((min(100vw, 560px) - 72px) / 7.1);
+    white-space: nowrap;
+    margin-bottom: 18px;
+}
