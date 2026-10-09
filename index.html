@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis 15 - Plantilla Base</title>
+
+  <!-- Fuentes Elegantes -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Íconos FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- MÚSICA DE FONDO (Reemplazar TU-USUARIO por tu usuario de GitHub) -->
+  <audio id="musica" loop preload="auto">
+    <source src="https://TU-USUARIO.github.io/INVITACION-MIS-15/musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- PANTALLA DE BIENVENIDA -->
+  <div id="overlay" class="overlay">
+    <div class="sobre-box">
+      <img src="imagenprimera.jpg" alt="Portada de bienvenida" class="foto-portada-sobre">
+      <button onclick="abrirInvitacion()" class="btn-abrir">✨ Ingresar ✨</button>
+    </div>
+  </div>
+
+  <!-- LLUVIA DE ESTRELLAS -->
+  <div id="estrellas-container"></div>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="main-container">
+
+    <!-- PORTADA -->
+    <div class="seccion-portada">
+      <img src="imagenprimera.jpg" alt="Portada Mis 15" class="foto-portada">
+    </div>
+
+    <!-- FRASE PRINCIPAL -->
+    <div class="seccion frase-box">
+      <p class="frase-texto">✨ Una noche mágica me espera... y quiero que seas parte, para compartir juntos momentos inolvidables que quedarán para siempre en mi corazón ✨</p>
+    </div>
+
+    <!-- CONTADOR REGRESIVO -->
+    <div class="seccion contador-seccion">
+      <h3 class="titulo-faltan">Faltan:</h3>
+      <div id="cuenta-regresiva" class="clock-container">
+        <div class="time-block"><span id="dias">00</span><small>DÍAS</small></div>
+        <div class="time-block"><span id="horas">00</span><small>HORAS</small></div>
+        <div class="time-block"><span id="minutos">00</span><small>MINUTOS</small></div>
+        <div class="time-block"><span id="segundos">00</span><small>SEGUNDOS</small></div>
+      </div>
+    </div>
+
+    <!-- FECHA Y UBICACIÓN -->
+    <div class="seccion info-evento">
+      <h2 class="fecha-linea">✨ 15 Noviembre 2026 - 21:00 hs ✨</h2>
+      <p class="direccion-texto">Catamarca 1540</p>
+      <a class="btn-ubicacion" href="https://www.google.com/maps/place/Catamarca+1540,+C1246+Cdad.+Aut%C3%B3noma+de+Buenos+Aires/" target="_blank">
+        Ver ubicación
+      </a>
+    </div>
+
+    <!-- GALERÍA VERTICAL (10 FOTOS) -->
+    <div class="seccion galeria">
+      <div class="galeria-vertical">
+        <img src="foto 1.jpg" alt="Foto 1">
+        <img src="foto 2.jpg" alt="Foto 2">
+        <img src="foto 3.jpg" alt="Foto 3">
+        <img src="foto 4.jpg" alt="Foto 4">
+        <img src="foto 5.jpg" alt="Foto 5">
+        <img src="foto 6.jpg" alt="Foto 6">
+        <img src="foto 7.jpg" alt="Foto 7">
+        <img src="foto 8.jpg" alt="Foto 8">
+        <img src="foto 9.jpg" alt="Foto 9">
+        <img src="foto 10.jpg" alt="Foto 10">
+      </div>
+    </div>
+
+    <!-- REGALOS / ALIAS -->
+    <div class="seccion regalos-box">
+      <h2 class="titulo-cursiva">🎁 Regalos</h2>
+      <p class="regalos-p">
+        El mejor regalo es tu presencia, pero si deseás obsequiarme algo, podés hacerlo a través de mi alias de Mercado Pago 💫
+      </p>
+      <div class="alias-card">
+        <p><strong>Alias:</strong> Nicole.aguiar.mis.15</p>
+        <p><strong>Nombre:</strong> Nicole-Aguiar-Ot</p>
+        <p><strong>CVU:</strong> 0000003100055991041744</p>
+      </div>
+    </div>
+
+    <!-- CONFIRMACIÓN POR WHATSAPP -->
+    <div class="seccion rsvp-box">
+      <p class="frase-texto">✨ Nos encantaría contar con tu presencia ✨</p>
+      <a class="btn-wsp" href="https://wa.me/541156167548?text=Hola%20confirmo%20mi%20asistencia%20a%20los%2015%20de%20Nicole%20✨" target="_blank">
+        <i class="fa-brands fa-whatsapp" style="margin-right: 8px;"></i>Confirmar asistencia
+      </a>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

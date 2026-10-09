@@ -1,0 +1,255 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* FONDO CON ROSAS Y VELO OSCURO */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-image: url('fondo2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(10, 15, 30, 0.35);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* CONTENEDOR ADAPTABLE A PC Y CELULARES */
+.main-container {
+  width: 100%;
+  max-width: 680px;
+  padding: 40px 20px 90px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  background: transparent !important;
+}
+
+.seccion {
+  margin-bottom: 95px;
+}
+
+.foto-portada {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+}
+
+/* TIPOGRAFÍAS CURSIVAS */
+.frase-texto {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.2rem;
+  color: #ffffff;
+  line-height: 1.45;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.7), 0 3px 10px rgba(0, 0, 0, 0.9);
+  padding: 0 10px;
+}
+
+.titulo-faltan, .titulo-cursiva {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 3px 10px rgba(0, 0, 0, 0.9);
+  margin-bottom: 20px;
+}
+
+.fecha-linea {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.3rem;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 3px 10px rgba(0, 0, 0, 0.9);
+  margin: 30px 0 15px 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 380px) {
+  .fecha-linea {
+    font-size: 1.9rem;
+    white-space: normal;
+  }
+}
+
+/* BLOQUES DEL CONTADOR CON TITILEO AZUL NEÓN */
+.clock-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  max-width: 420px;
+  margin: 25px auto;
+}
+
+.time-block {
+  background: rgba(12, 22, 42, 0.85);
+  border: 1px solid rgba(100, 160, 255, 0.6);
+  border-radius: 20px;
+  padding: 18px 10px;
+  backdrop-filter: blur(8px);
+  animation: titileoNeo 2s infinite alternate;
+}
+
+@keyframes titileoNeo {
+  0% {
+    box-shadow: 0 0 10px rgba(41, 121, 255, 0.4), inset 0 0 8px rgba(41, 121, 255, 0.2);
+    border-color: rgba(65, 130, 245, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(41, 121, 255, 0.95), inset 0 0 15px rgba(41, 121, 255, 0.6);
+    border-color: rgba(120, 190, 255, 0.95);
+  }
+}
+
+.time-block span {
+  display: block;
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+}
+
+.time-block small {
+  font-size: 0.75rem;
+  color: #c0d8ff;
+  letter-spacing: 2.5px;
+  font-weight: 600;
+}
+
+/* BOTONES Y TARJETAS */
+.direccion-texto {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.btn-ubicacion {
+  display: inline-block;
+  background: linear-gradient(135deg, #2b5876, #4e4376);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 14px 35px;
+  border-radius: 30px;
+  font-weight: bold;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+.galeria-vertical img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 20px;
+  margin: 0 auto 35px auto;
+  display: block;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+}
+
+.regalos-p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.alias-card {
+  background: rgba(12, 22, 42, 0.85);
+  border: 1px solid rgba(100, 160, 255, 0.5);
+  padding: 22px;
+  border-radius: 18px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(41, 121, 255, 0.3);
+}
+
+.btn-wsp {
+  display: inline-block;
+  background: #25d366;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 16px 40px;
+  border-radius: 35px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+  margin-top: 20px;
+}
+
+/* LLUVIA DE ESTRELLAS POR DETRÁS */
+#estrellas-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.estrella {
+  position: absolute;
+  top: -30px;
+  color: #ffd700;
+  pointer-events: none;
+  animation: caida linear infinite;
+  text-shadow: 0 0 12px #ffe600, 0 0 20px #ffaa00;
+  filter: drop-shadow(0 0 6px #ffe600);
+}
+
+@keyframes caida {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+}
+
+/* CORTINA DE ENTRADA */
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(5, 10, 25, 0.92);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease;
+}
+
+.sobre-box {
+  text-align: center;
+  max-width: 90%;
+  width: 380px;
+}
+
+.foto-portada-sobre {
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.btn-abrir {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.05rem;
+  backdrop-filter: blur(5px);
+}
