@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (music) {
                 music.play().catch(function (error) {
                     console.log("No se pudo reproducir la música:", error);
+                    syncPlayerState();
                 });
             }
             welcomeScreen.classList.add("hidden");
@@ -33,8 +34,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (music) {
-        music.addEventListener("play", syncPlayerState);
+        // "playing" = suena de verdad (no solo se pidió reproducir)
+        music.addEventListener("playing", syncPlayerState);
         music.addEventListener("pause", syncPlayerState);
+        music.addEventListener("ended", syncPlayerState);
+        music.addEventListener("error", function () {
+            player.classList.remove("is-playing");
+            console.error("No se pudo cargar musica.mp3. Revisá que el archivo exista y sea un MP3 válido.", music.error);
+        });
 
         // Barra de progreso
         music.addEventListener("timeupdate", function () {
@@ -46,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (playBtn) {
         playBtn.addEventListener("click", function () {
             if (music.paused) {
-                music.play().catch(function (e) { console.log(e); });
+                music.play().catch(function (e) { console.log(e); syncPlayerState(); });
             } else {
                 music.pause();
             }
