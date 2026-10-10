@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
             mainContent.classList.remove("hidden");
             document.body.classList.remove("welcome-active");
             window.scrollTo(0, 0);
-            requestAnimationFrame(fitTitles);
+            requestAnimationFrame(fitAll);
         });
     }
 
@@ -63,12 +63,32 @@ document.addEventListener("DOMContentLoaded", function () {
             if (best !== Infinity) list.forEach(function (el) { el.style.fontSize = best + "px"; });
         });
     }
+    // ---------- MENSAJE: que ocupe el mismo alto que las fotos ----------
+    function fitMessage() {
+        document.querySelectorAll(".hero-side").forEach(function (row) {
+            const text = row.querySelector(".message-text");
+            const stack = row.querySelector(".polaroid-stack");
+            if (!text || !stack) return;
+            const target = stack.offsetHeight * 0.96;
+            if (target <= 0) return;                          // sección oculta todavía
+            let lo = 14, hi = 42;
+            for (let i = 0; i < 14; i++) {
+                const mid = (lo + hi) / 2;
+                text.style.fontSize = mid + "px";
+                if (text.offsetHeight <= target) lo = mid; else hi = mid;
+            }
+            text.style.fontSize = lo + "px";
+        });
+    }
+    function fitAll() { fitTitles(); fitMessage(); }
+
     let fitTimer;
     window.addEventListener("resize", function () {
         clearTimeout(fitTimer);
-        fitTimer = setTimeout(fitTitles, 120);
+        fitTimer = setTimeout(fitAll, 120);
     });
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitTitles);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitAll);
+    window.addEventListener("load", fitAll);
 
     // ---------- REPRODUCTOR ----------
     function syncPlayerState() {
