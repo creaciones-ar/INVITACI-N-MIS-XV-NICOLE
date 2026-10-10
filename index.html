@@ -6,8 +6,8 @@
     <title>Mis 15 Años - Nicole</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Herr+Von+Muellerhoff&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Titan+One&family=Courier+Prime&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=13">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Herr+Von+Muellerhoff&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Sacramento&family=Courier+Prime&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=14">
 </head>
 <body class="welcome-active">
 
@@ -51,9 +51,9 @@
         <section class="hero-section">
             <h1 class="top-subtitle glow">It's my birthday</h1>
 
-            <h2 class="balloon-title">Nicki Fest</h2>
-
-            <p class="player-hint">Presioná PLAY para reproducir la canción</p>
+            <div class="name-balloons-container">
+                <img src="icono1.png?v=2" alt="Nicki Fest" class="name-balloons-img">
+            </div>
 
             <div class="music-player" aria-label="Reproductor de música">
                 <div class="progress" id="progress" role="progressbar" aria-label="Progreso de la canción">
@@ -95,7 +95,6 @@
             <div class="date-row">
                 <span class="side-label left">Sábado</span>
                 <div class="date-frame">
-                    <i class="dot tl"></i><i class="dot tr"></i><i class="dot bl"></i><i class="dot br"></i>
                     <h2>14</h2>
                     <p class="year-label">2026</p>
                 </div>
@@ -123,10 +122,9 @@
             </div>
             <div class="location-content-box">
                 <div class="icon-container"><img src="icono4.gif" alt="" class="section-gif-icon"></div>
-                <h3 class="script-title small">Lugar del evento:</h3>
+                <h3 class="script-title small fit-title" data-fit="loc" data-max="46" data-min="18">Lugar del evento:</h3>
                 <p class="location-name">Vía el Cóndor Salón Costa Eventos</p>
-                <p class="location-address">Ruta 1 km 12,5 camino al Cóndor, Viedma, Argentina (8500)</p>
-                <a href="https://www.google.com/maps/search/?api=1&query=Ruta+1+km+12%2C5+camino+al+Condor%2C+Viedma%2C+Argentina" target="_blank" rel="noopener" class="btn-silver big">Ver ubicación</a>
+                <a href="https://www.google.com/maps/search/Ruta+1+km+12,5+camino+al+CONDOR,+Viedma,+Argentina,+8.500/@-40.8249517,-63.041425,13z/data=!3m1!4b1?entry=ttu&amp;g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn-silver big">Ubicación</a>
             </div>
         </section>
 
@@ -134,14 +132,14 @@
         <section class="info-section">
             <div class="info-block">
                 <div class="icon-container"><img src="icono3.gif" alt="" class="section-gif-icon"></div>
-                <h3 class="script-title">Dress Code</h3>
-                <p class="info-text">Elegante</p>
+                <h3 class="script-title fit-title" data-fit="info" data-max="64" data-min="18">Dress Code</h3>
+                <p class="info-text">Elegant</p>
                 <div class="forbidden">
                     <p class="forbidden-title">Colores prohibidos</p>
                     <div class="color-circles">
-                        <div class="color-item"><span class="swatch swatch-blue"></span><span>Azul</span></div>
-                        <div class="color-item"><span class="swatch swatch-gold"></span><span>Dorado</span></div>
-                        <div class="color-item"><span class="swatch swatch-white"></span><span>Blanco</span></div>
+                        <span class="swatch swatch-blue"></span>
+                        <span class="swatch swatch-gold"></span>
+                        <span class="swatch swatch-white"></span>
                     </div>
                     <p class="forbidden-note">(En todas las tonalidades)</p>
                 </div>
@@ -149,8 +147,9 @@
 
             <div class="info-block">
                 <div class="icon-container"><img src="icono2.gif" alt="" class="section-gif-icon"></div>
-                <h3 class="script-title gift-title">¡El mejor regalo es tu presencia!</h3>
-                <p class="info-text">Pero si deseas hacerme un obsequio, puedes hacerlo mediante el siguiente ALIAS:</p>
+                <h3 class="script-title gift-title fit-title" data-fit="info" data-max="64" data-min="18">¡El mejor regalo es tu presencia!</h3>
+                <p class="info-text">Pero si deseas hacerme un obsequio, puedes hacerlo mediante el siguiente</p>
+                <p class="alias-label">ALIAS:</p>
                 <p class="alias-text">NicoleTero.mp</p>
             </div>
         </section>
@@ -163,7 +162,7 @@
             </div>
 
             <div class="rsvp-container">
-                <h3 class="script-title">Confirmación de asistencia</h3>
+                <h3 class="script-title fit-title" data-fit="rsvp" data-max="72" data-min="18">Confirmación de asistencia</h3>
                 <p class="rsvp-desc">¡Te invito a celebrar juntos una noche inolvidable!</p>
                 <a href="https://wa.me/+5491156167548?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20los%2015%20de%20Nicole." target="_blank" rel="noopener" class="btn-silver big">Confirmar</a>
                 <p class="rsvp-note">Confirmar antes del 1 de Noviembre.</p>
@@ -172,6 +171,6 @@
 
     </main>
 
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
 </body>
 </html>
