@@ -595,3 +595,94 @@ main#main-content { overflow-x: clip; }
     object-position: center 30%;
 }
 .location-content-box { justify-content: center; }
+
+/* ---------- 16. CAMBIOS DE LA CLIENTA ---------- */
+
+/* "Nicki Fest": letras plateadas tipo globo */
+.balloon-title {
+    font-family: "Titan One", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: calc((min(100vw, 460px) - 20px) / 7.2);
+    letter-spacing: 2px;
+    line-height: 1.1;
+    white-space: nowrap;
+    margin: 6px 0 16px;
+    background: linear-gradient(180deg, #ffffff 0%, #d9dee6 20%, #8d97a6 46%, #f3f5f8 54%, #aab3c0 80%, #6c7686 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px rgba(80, 90, 105, .55);
+    filter: drop-shadow(0 3px 3px rgba(16, 36, 66, .35));
+}
+
+/* Mensaje de la cumpleañera (letra legible para un texto largo) */
+.message { max-width: 460px; margin: 6px auto 0; padding: 0 6px; }
+.message-text {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.15rem, 4.7vw, 1.45rem);
+    line-height: 1.5;
+    color: var(--texto);
+}
+
+/* Polaroids del inicio, lado a lado debajo del mensaje */
+.hero-polaroids { margin: 34px 0 0; }
+
+/* "Faltan" con letra más legible */
+.countdown-section .script-title {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(3rem, 12vw, 4.4rem);
+}
+
+/* Dirección del salón */
+.location-address {
+    font-size: clamp(.72rem, 2.7vw, .9rem);
+    letter-spacing: .5px;
+    line-height: 1.4;
+    color: var(--texto-suave);
+    margin: -10px 0 18px;
+}
+
+/* Colores prohibidos */
+.forbidden { margin-top: 28px; }
+.forbidden-title {
+    font-size: clamp(.85rem, 3.2vw, 1rem);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.color-circles { display: flex; justify-content: center; gap: clamp(20px, 8vw, 40px); margin: 18px 0 12px; }
+.color-item {
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    font-size: clamp(.75rem, 2.8vw, .9rem); letter-spacing: 2px; text-transform: uppercase;
+}
+.swatch {
+    position: relative;
+    width: clamp(46px, 14vw, 62px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    box-shadow: 0 3px 8px rgba(16, 36, 66, .22);
+}
+.swatch-blue  { background: linear-gradient(135deg, #8fd0f5 0%, #1f5fb8 50%, #0b2a66 100%); }
+.swatch-gold  { background: linear-gradient(135deg, #f6e3a1 0%, #d4af37 55%, #a8801c 100%); }
+.swatch-white { background: #ffffff; border: 1.5px solid var(--plateado); }
+/* tachado diagonal = prohibido */
+.swatch::after {
+    content: "";
+    position: absolute;
+    left: -5px; right: -5px; top: 50%;
+    height: 2.5px;
+    background: #c0392b;
+    border-radius: 2px;
+    transform: rotate(-45deg);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, .8);
+}
+.forbidden-note { font-size: clamp(.75rem, 2.8vw, .9rem); letter-spacing: 1px; color: var(--texto-suave); }
+
+/* Encuadre de las fotos nuevas dentro de las polaroids */
+.polaroid-card img { object-position: center 20%; }
