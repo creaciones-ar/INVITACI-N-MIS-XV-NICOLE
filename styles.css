@@ -686,3 +686,60 @@ main#main-content { overflow-x: clip; }
 
 /* Encuadre de las fotos nuevas dentro de las polaroids */
 .polaroid-card img { object-position: center 20%; }
+
+/* ---------- 17. SEGUNDA RONDA DE CAMBIOS ---------- */
+:root { --script-title: "Sacramento", cursive; }
+
+/* Nicki Fest (icono1.png): ancho según la pantalla */
+.name-balloons-img { width: min(calc(100vw - 40px), 460px); max-width: none; }
+.music-player { margin-top: 6px; }
+
+/* Fecha: sin puntitos y con números más claros */
+.dot { display: none; }
+.date-frame h2 {
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: clamp(4.2rem, 16vw, 6rem);
+    letter-spacing: 2px;
+    line-height: 1;
+    color: var(--azul-suave);
+}
+
+/* Todos los títulos con la misma letra (más legible) */
+.script-title {
+    font-family: var(--script-title);
+    font-style: normal;
+    font-weight: 400;
+    -webkit-text-stroke: .35px currentColor;
+}
+.countdown-section .script-title { font-family: var(--script-title); font-style: normal; font-size: clamp(3.4rem, 13vw, 5rem); }
+
+/* Títulos que se ajustan solos para entrar en un renglón (ver script.js) */
+.script-title.fit-title {
+    width: max-content;
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+    white-space: nowrap;
+    font-size: calc((min(100vw, 560px) - 16px) * 0.075);
+}
+
+/* Dress code: círculos sin nombres ni tachado, dorado brillante */
+.color-circles { margin: 18px 0 14px; }
+.swatch::after { content: none; }
+.swatch-gold {
+    background:
+        radial-gradient(circle at 30% 26%, #fffbe3 0%, rgba(255, 251, 227, 0) 38%),
+        linear-gradient(135deg, #7a5200 0%, #e8b923 22%, #fff0a6 40%, #d9a514 58%, #8a5a00 78%, #f6d366 100%);
+    box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, .4), inset -3px -4px 8px rgba(90, 55, 0, .35), 0 3px 8px rgba(16, 36, 66, .25);
+}
+
+/* ALIAS en su propio renglón, centrado */
+.alias-label {
+    margin-top: 14px;
+    font-size: clamp(.95rem, 3.6vw, 1.15rem);
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-align: center;
+}
+.alias-label + .alias-text { margin-top: 8px; }
