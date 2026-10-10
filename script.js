@@ -32,8 +32,43 @@ document.addEventListener("DOMContentLoaded", function () {
             mainContent.classList.remove("hidden");
             document.body.classList.remove("welcome-active");
             window.scrollTo(0, 0);
+            requestAnimationFrame(fitTitles);
         });
     }
+
+    // ---------- TÍTULOS QUE SE AJUSTAN AL ANCHO ----------
+    // Cada título con data-fit queda en un solo renglón; los del mismo grupo usan el mismo tamaño.
+    function fitTitles() {
+        const groups = {};
+        document.querySelectorAll("[data-fit]").forEach(function (el) {
+            (groups[el.dataset.fit] = groups[el.dataset.fit] || []).push(el);
+        });
+        Object.keys(groups).forEach(function (name) {
+            const list = groups[name];
+            let best = Infinity;
+            list.forEach(function (el) {
+                const parent = el.parentElement;
+                const cs = getComputedStyle(parent);
+                const avail = (parent.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight)) * 0.98;
+                if (avail <= 0) return;                       // sección oculta todavía
+                let lo = parseFloat(el.dataset.min || 18);
+                let hi = parseFloat(el.dataset.max || 80);
+                for (let i = 0; i < 14; i++) {
+                    const mid = (lo + hi) / 2;
+                    el.style.fontSize = mid + "px";
+                    if (el.offsetWidth <= avail) lo = mid; else hi = mid;
+                }
+                best = Math.min(best, lo);
+            });
+            if (best !== Infinity) list.forEach(function (el) { el.style.fontSize = best + "px"; });
+        });
+    }
+    let fitTimer;
+    window.addEventListener("resize", function () {
+        clearTimeout(fitTimer);
+        fitTimer = setTimeout(fitTitles, 120);
+    });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitTitles);
 
     // ---------- REPRODUCTOR ----------
     function syncPlayerState() {
