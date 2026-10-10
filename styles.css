@@ -766,3 +766,22 @@ main#main-content { overflow-x: clip; }
 .polaroid-row .polaroid-card { width: min(64vw, 290px); }
 .polaroid-row .polaroid-card:first-child { align-self: flex-start; margin-left: 3%; }
 .polaroid-row .polaroid-card:last-child  { align-self: flex-end; margin-right: 3%; margin-top: -36px; }
+
+/* ---------- 19. PRUEBA: FOTOS AL LADO DEL MENSAJE ---------- */
+.hero-row.hero-side {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 14px;
+    align-items: center;
+    max-width: 560px;
+    margin-top: 28px;
+}
+.hero-side .message { margin: 0; padding: 0; max-width: none; }
+.hero-side .message-text {
+    font-size: clamp(1rem, 4.3vw, 1.3rem);
+    line-height: 1.45;
+    text-align: center;
+    text-wrap: pretty;
+}
+.hero-side .polaroid-stack .polaroid-card { width: clamp(130px, 42vw, 215px); }
+.hero-side .polaroid-stack .polaroid-card:nth-child(1) { margin-left: 10px; }
+.hero-side .polaroid-stack .polaroid-card:nth-child(2) { margin-top: -34px; margin-left: 0; margin-right: 10px; }
