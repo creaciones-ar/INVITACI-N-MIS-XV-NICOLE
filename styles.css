@@ -777,8 +777,8 @@ main#main-content { overflow-x: clip; }
 }
 .hero-side .message { margin: 0; padding: 0; max-width: none; }
 .hero-side .message-text {
-    font-size: clamp(1rem, 4.3vw, 1.3rem);
-    line-height: 1.45;
+    font-size: clamp(1.2rem, 5.4vw, 1.7rem);   /* el JS lo ajusta para igualar el alto de las fotos */
+    line-height: 1.4;
     text-align: center;
     text-wrap: pretty;
 }
