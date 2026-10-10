@@ -743,3 +743,26 @@ main#main-content { overflow-x: clip; }
     text-align: center;
 }
 .alias-label + .alias-text { margin-top: 8px; }
+
+/* ---------- 18. TERCERA RONDA DE CAMBIOS ---------- */
+
+/* Letra de la referencia (Allura) para todos los títulos en cursiva */
+:root { --script: "Allura", cursive; --script-title: "Allura", cursive; }
+.fit-line { width: max-content; max-width: none; margin-left: auto; margin-right: auto; white-space: nowrap; }
+.welcome-name { line-height: 1; }
+
+/* Sello del sobre (dorado, suave) */
+.envelope .seal { animation: latido 2.2s ease-in-out infinite; transform-origin: 160px 130px; }
+
+/* Fotos más grandes: una debajo de la otra, escalonadas y superpuestas, en formato vertical 3:4 */
+.polaroid-card img { aspect-ratio: 3 / 4; object-position: center 30%; }
+.polaroid-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    max-width: 520px;
+}
+.polaroid-row .polaroid-card { width: min(64vw, 290px); }
+.polaroid-row .polaroid-card:first-child { align-self: flex-start; margin-left: 3%; }
+.polaroid-row .polaroid-card:last-child  { align-self: flex-end; margin-right: 3%; margin-top: -36px; }
